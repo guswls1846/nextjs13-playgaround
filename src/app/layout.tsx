@@ -11,11 +11,14 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-yellow-700`}>
+        루트 레이아웃
+        {children}
+      </body>
     </html>
-  )
+  );
 }

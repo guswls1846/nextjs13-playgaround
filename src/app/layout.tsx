@@ -15,10 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-yellow-700`}>
-        루트 레이아웃
-        {children}
-      </body>
+      <body className={`${inter.className} bg-yellow-700`}>{children}</body>
     </html>
   );
 }

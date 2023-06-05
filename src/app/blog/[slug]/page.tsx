@@ -8,7 +8,7 @@ interface Post {
 }
 
 interface PageProps {
-  params: Post;
+  params: { slug: Post["slug"] };
 }
 
 export async function generateStaticParams() {

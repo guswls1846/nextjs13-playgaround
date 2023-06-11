@@ -1,9 +1,11 @@
+import React from "react";
+import HomeContainer from "@/app/components/home";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        홈 영역
-      </div>
-    </main>
+    <div className="flex-1 bg-amber-100">
+      홈(공통) 섹션
+      <HomeContainer />
+    </div>
   );
 }

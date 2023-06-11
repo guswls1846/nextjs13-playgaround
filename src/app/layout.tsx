@@ -1,32 +1,35 @@
+"use client";
 import "./globals.css";
-import { Inter } from "next/font/google";
-import Link from "next/link";
-import React, { Suspense } from "react";
-import Loading from "@/app/dashboard/loading";
+import React from "react";
+import useUserInfo from "@/app/hook/useUserInfo";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "NextJS Playground",
-  description: "NextJS 13 앱 라우터 방식 프로젝트 템플릿",
-};
+interface RootLayoutProps {
+  children: React.ReactNode;
+  marketingTeam: React.ReactNode;
+  productTeam: React.ReactNode;
+  modal: React.ReactNode;
+}
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  marketingTeam,
+  productTeam,
+  modal,
+}: RootLayoutProps) {
+  const { department } = useUserInfo();
+
+  const isMarketingTeam = department === "marketing";
+  const isProductTeam = department === "product";
+
   return (
     <html lang="en">
-      <body>
-        <h1>Cars</h1>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/dashboard">Cars</Link>
-        </li>
+      <body className={"h-screen flex flex-col"}>
         {children}
+        {modal}
+
+        {/*조건부 라우트를 사용한 병렬 라우트*/}
+        {isMarketingTeam && marketingTeam}
+        {isProductTeam && productTeam}
       </body>
     </html>
   );

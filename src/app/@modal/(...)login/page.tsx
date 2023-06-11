@@ -15,10 +15,22 @@ const LoginModal = () => {
   return (
     <Modal>
       <div className={"flex flex-1 flex-col w-96 h-96 bg-blue-100"}>
-        <button onClick={handleLogin} name={"marketing"}>
+        <button
+          onClick={handleLogin}
+          name={"marketing"}
+          className={
+            "bg-red-100 hover:bg-red-500 text-white font-bold py-2 px-4 rounded"
+          }
+        >
           마켓팅팀 로그인
         </button>
-        <button onClick={handleLogin} name={"product"}>
+        <button
+          onClick={handleLogin}
+          name={"product"}
+          className={
+            "bg-green-100 hover:bg-green-500 text-white font-bold py-2 px-4 rounded"
+          }
+        >
           프로덕트팀 로그인
         </button>
       </div>
